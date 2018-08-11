@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         for(Usuario u: listaUsuarios){
             if(u.verificaLogin(nome,senha)){
                 loginSucesso = true;
-                abrirTelaBemVindo();
+                abrirTelaBemVindo(u);
             }
         }
 
@@ -42,8 +42,15 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void abrirTelaBemVindo() {
+    @Override
+    public void onStart(){
+        super.onStart();
+        zeraCampos();
+    }
+
+    private void abrirTelaBemVindo(Usuario usuario) {
         Intent it = new Intent(this, BemVindoActivity.class);
+        it.putExtra("nomeCompleto",usuario.getNomeCompleto());
         startActivity(it);
     }
 
