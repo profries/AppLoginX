@@ -1,6 +1,8 @@
 package com.example.iossenac.apploginx.model;
 
-public class Usuario {
+import java.io.Serializable;
+
+public class Usuario implements Serializable{
     private String nome, senha, nomeCompleto;
 
     public Usuario(String nome, String senha, String nomeCompleto) {
